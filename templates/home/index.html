@@ -1,0 +1,107 @@
+{% extends "home/home.html" %}
+
+{% block section %}
+{% include 'include/messages_login.html' %}
+<div class="row">
+ <div class="col-md-4">
+    <div class="card mb-4 container-card">
+                <a href="{% url 'inventory:list-person' %}" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                            <h5 class="card-title">
+                                Estudiantes
+                                    <i class="fas fa-chevron-right"></i>
+                            </h5>
+                            <p class="card-text">Total de estudiantes</p>
+                            <i class="nav-icon fas fa-users" style="position: relative;" ></i>
+                                <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5em;">
+                                    {{ total_computers }}
+                                    <span class="visually-hidden"></span>
+                                </span>                        
+                            </i>
+                    </div>
+                </a>
+            </div>
+    </div>
+    <div class="col-md-4">
+    <div class="card mb-4 container-card">
+                <a href="{% url 'inventory:list-course' %}" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                            <h5 class="card-title">
+                                Cursos
+                                    <i class="fas fa-chevron-right"></i>
+                            </h5>
+                            <p class="card-text">Total de cursos</p>
+                            <i class="nav-icon fas fa-users" style="position: relative;" ></i>
+                                <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5em;">
+                                    {{ total_course }}
+                                    <span class="visually-hidden"></span>
+                                </span>                        
+                            </i>
+                    </div>
+                </a>
+            </div>
+    </div>
+
+    <div class="col-md-4">
+    <div class="card mb-4 container-card">
+                <a href="{% url 'inventory:list-matter' %}" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                            <h5 class="card-title">
+                                Materias
+                                    <i class="fas fa-chevron-right"></i>
+                            </h5>
+                            <p class="card-text">Total de materias</p>
+                            <i class="nav-icon fas fa-users" style="position: relative;" ></i>
+                                <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5em;">
+                                    {{ total_computers }}
+                                    <span class="visually-hidden"></span>
+                                </span>                        
+                            </i>
+                    </div>
+                </a>
+            </div>
+    </div>
+
+
+        <div class="col-md-4">
+            
+            <div class="card mb-4 container-card">
+                <a href="{% url 'inventory:list-computer' %}" style="text-decoration: none; color: inherit;">
+                    <div class="card-body">
+                            <h5 class="card-title">
+                                Computadoras
+                                    <i class="fas fa-chevron-right"></i>
+                            </h5>
+                            <p class="card-text">Total de computadoras</p>
+                            <i class="nav-icon fas fa-desktop" style="position: relative;" ></i>
+                                <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5em;">
+                                    {{ total_computers }}
+                                    <span class="visually-hidden"></span>
+                                </span>                        
+                            </i>
+                    </div>
+                </a>
+            </div>                      
+            </div> <div class="col-md-4">
+                <div class="card mb-4 container-card">
+                    <a href="{% url 'inventory:list-assignment' %}" style="text-decoration: none; color: inherit;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Reservas
+                                <i class="fas fa-chevron-right"></i>
+                            </h5>
+                            <p class="card-text">Total de reservas</p>
+                            <i class="nav-icon fas fa-exchange" style="position: relative;"></i>
+                                <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger" style="font-size: 0.5em;">
+                                    {{ total_assignments }}
+                                    <span class="visually-hidden"></span>
+                                </span>                        
+                            </i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        
+       
+    </div>
+{% endblock %}
