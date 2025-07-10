@@ -21,16 +21,16 @@ class IndexView(LoginRequiredMixin,TemplateView):
             
             person = Person.objects.filter(is_deleted=False)
             total_person = person.count()
-            context['total_person'] = total_person
+            context['total_persons'] = total_person
         
             course = Course.objects.filter(is_deleted=False)
             total_course = course.count()
-            context['total_course'] = total_course
+            context['total_courses'] = total_course
             
         
             matter = Matter.objects.filter(is_deleted=False)
             total_matter = matter.count()
-            context['total_matter'] = total_matter
+            context['total_matters'] = total_matter
             return context
 
 

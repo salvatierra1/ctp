@@ -1,35 +1,37 @@
 {% extends 'home/home.html' %}
 
 {% block section %}
-{% include 'include/messages.html' %}
-<div class="container-fluid">
+<div class="container py-5">
   <div class="row justify-content-center">    
     <div class="col-md-6"> 
-      <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Registrar Computadora</h3>
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white">
+          <h3 class="card-title mb-0">Registrar Computadora</h3>
         </div>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" class="p-4">
           {% csrf_token %}
-          <div class="card-body">
-            <div class="form-group">
-                <label for="id_brand">Marca</label>
-                <input type="text" name="first_name" maxlength="100" required class="form-control" id="id_first_name">
-              </div>
-            <div class="form-group">
-              <label for="id_number">Número</label>
-              <input type="text" name="number" maxlength="100" required class="form-control" id="id_number">
-            </div>
-            <div class="form-group">
-              <label for="id_description">Observación</label>
-              <input type="text" name="description" maxlength="50" required class="form-control" id="id_description">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" name="is_available" class="form-check-input" id="id_is_available" checked>
-                <label class="form-check-label" for="id_is_available">Disponible</label>
-            </div>
+
+          <div class="form-outline">
+            <input type="text" name="first_name" maxlength="100" required id="id_first_name" placeholder=" " class="form-control" />
+            <label for="id_first_name">Marca <span class="required-asterisk">*</span></label>
           </div>
-          <div class="card-footer">
+
+          <div class="form-outline">
+            <input type="text" name="number" maxlength="100" required id="id_number" placeholder=" " class="form-control" />
+            <label for="id_number">Número <span class="required-asterisk">*</span></label>
+          </div>
+
+          <div class="form-outline">
+            <input type="text" name="description" maxlength="50" required id="id_description" placeholder=" " class="form-control" />
+            <label for="id_description">Observación <span class="required-asterisk">*</span></label>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" name="is_available" class="form-check-input" id="id_is_available" checked>
+            <label class="form-check-label" for="id_is_available">Disponible</label>
+          </div>
+
+          <div class="d-grid">
             <button type="submit" class="btn btn-primary">Guardar</button>
           </div>
         </form>

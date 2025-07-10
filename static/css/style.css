@@ -285,3 +285,46 @@ h3.card-list {
   color:aliceblue;
   box-shadow: 10px 10px 20px -8px rgba(124, 124, 124, 0.646);
 }
+
+
+.card {
+  margin-bottom: 1.5rem;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, .nav-link, .btn {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card {
+    animation: fadeInUp 0.6s ease;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .nav-sidebar .nav-link.active, .nav-sidebar .nav-link:hover {
+  background-color: #007bff; /* azul primario */
+  color: #fff;
+}
+
+.nav-sidebar .nav-link:hover .nav-icon {
+  color: #fff;
+}
+
+body {
+  background: linear-gradient(135deg, #f0f2f5 0%, #ffffff 100%);
+}
