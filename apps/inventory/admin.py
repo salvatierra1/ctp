@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Computer, Person, Assignment
+from .models import Computer, Person, Assignment, Matter, Course
 
-# Registramos el modelo Computer en el admin
+# Admin para Computer
 @admin.register(Computer)
 class ComputerAdmin(admin.ModelAdmin):
     list_display = ('number', 'first_name', 'description', 'is_available', 'is_deleted')
@@ -10,21 +10,41 @@ class ComputerAdmin(admin.ModelAdmin):
     ordering = ('number',)
     list_editable = ('is_available',)
 
-# Registramos el modelo Person en el admin
-# @admin.register(Person)
-# class PersonAdmin(admin.ModelAdmin):
-#     list_display = ('dni', 'first_name', 'last_name', 'course', 'is_deleted')
-#     list_filter = ('course', 'is_deleted')
-#     search_fields = ('dni', 'first_name', 'last_name', 'course')
-#     ordering = ('last_name', 'first_name')
 
-# Registramos el modelo Assignment en el admin
-# @admin.register(Assignment)
-# class AssignmentAdmin(admin.ModelAdmin):
-#     list_display = ('person', 'computer', 'date', 'observation', 'returned', 'is_deleted')
-#     list_filter = ('returned', 'is_deleted', 'date')
-#     search_fields = ('person__dni', 'person__first_name', 'person__last_name', 'computer__number', 'observation')
-#     autocomplete_fields = ('person', 'computer')
-#     ordering = ('-date',)
-#     date_hierarchy = 'date'  # Esto permite filtrar por fecha en la parte superior
-#     list_editable = ('returned', 'observation')  # Permite editar 'returned' y 'observation' desde la lista
+# Admin para Assignment
+@admin.register(Assignment)
+class AssignmentAdmin(admin.ModelAdmin):
+    list_display = ('person', 'computer', 'course', 'requested_at', 'returned', 'returned_at', 'is_deleted')
+    list_filter = ('returned', 'is_deleted', 'requested_at')
+    search_fields = ('person__first_name', 'person__last_name', 'computer__first_name', 'course__first_name')
+    ordering = ('-requested_at',)
+    date_hierarchy = 'requested_at'
+    readonly_fields = ('requested_at', 'returned_at')
+
+
+# Admin para Person
+@admin.register(Person)
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('dni', 'last_name', 'first_name', 'is_deleted')
+    list_filter = ('is_deleted',)
+    search_fields = ('dni', 'last_name', 'first_name')
+    ordering = ('last_name',)
+
+
+# Admin para Course
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'is_deleted')
+    list_filter = ('is_deleted',)
+    search_fields = ('first_name',)
+    ordering = ('first_name',)
+
+
+# Admin para Matter
+@admin.register(Matter)
+class MatterAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'course', 'is_deleted')
+    list_filter = ('is_deleted', 'course')
+    search_fields = ('first_name', 'course__first_name')
+    ordering = ('first_name',)
+    

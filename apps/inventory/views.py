@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils import timezone
 
 # Create your views here.
 
@@ -263,11 +264,12 @@ class ToggleAvailabilityView(LoginRequiredMixin, View):
             if assignment:
                 assignment.is_deleted = True
                 assignment.returned = True  # opcional, si querés marcarlo como devuelto también
+                assignment.returned_at = timezone.now()
                 assignment.save()
 
         return redirect(request.META.get('HTTP_REFERER', reverse_lazy('inventory:list-computer')))
 
-class CourseCreateView(generic.CreateView):
+class CourseCreateView(LoginRequiredMixin, generic.CreateView):
     model = Course
     fields = '__all__'
     template_name = 'course/create.html'

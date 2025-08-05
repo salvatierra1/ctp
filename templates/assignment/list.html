@@ -27,7 +27,7 @@
               <th style="width: 10%;">Curso</th>
               <th style="width: 10%;">Computadora</th>
               <th style="width: 15%;">Estado</th>
-              <th style="width: 20%;">Fecha</th>
+              <th style="width: 20%;">Solicitud</th>
               <th style="width: 15%;">Observación</th>
               <th style="width: 15%;">Acciones</th>
             </tr>
@@ -52,7 +52,7 @@
                     {% endif %}
                   </form>
                 </td>
-                <td>{{ assignment.date }}</td>
+                <td>{{ assignment.requested_at }}</td>
                 <td>{{ assignment.observation }}</td>
                 <td class="text-end">
                   <div class="btn-group btn-group-sm">
